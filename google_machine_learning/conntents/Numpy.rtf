@@ -1,0 +1,335 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 Courier;\f1\fswiss\fcharset0 Helvetica;\f2\fswiss\fcharset0 Helvetica-Oblique;
+\f3\froman\fcharset0 Times-Roman;\f4\fswiss\fcharset0 Helvetica-Bold;}
+{\colortbl;\red255\green255\blue255;\red255\green255\blue255;\red203\green203\blue203;\red42\green42\blue42;
+\red183\green111\blue179;\red23\green23\blue23;\red202\green202\blue202;\red212\green212\blue212;\red167\green197\blue152;
+\red212\green214\blue154;\red89\green156\blue62;}
+{\*\expandedcolortbl;;\cssrgb\c100000\c100000\c100000;\cssrgb\c83529\c83529\c83529;\cssrgb\c21961\c21961\c21961;
+\cssrgb\c77255\c52549\c75294;\cssrgb\c11765\c11765\c11765;\cssrgb\c83137\c83137\c83137;\cssrgb\c86275\c86275\c86275;\cssrgb\c70980\c80784\c65882;
+\cssrgb\c86275\c86275\c66667;\cssrgb\c41569\c66275\c30980;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs32 \cf2 \expnd0\expndtw0\kerning0
+YouTube downloader\
+pip install pytube\
+Template:\
+<!DOCTYPE html>\
+<html>\
+<body>\
+\
+<h1>Youtube video downloader</h1>\
+\
+\
+<form action="" method="post">\
+\{% csrf_token %\}\
+\
+<label for="link">Enter URL:</label>\
+<input type="text" id="link" name="link"><br><br>\
+<input type="submit" value="Submit">\
+</form>\
+\
+</body>\
+</html>\
+\
+Views:\
+# importing all the required modules\
+from django.shortcuts import render, redirect\
+from pytube import *\
+\
+\
+# defining function\
+def youtube(request):\
+\
+	# checking whether request.method is post or not\
+	if request.method == 'POST':\
+		\
+		# getting link from frontend\
+		link = request.POST['link']\
+		video = YouTube(link)\
+\
+		# setting video resolution\
+		stream = video.streams.get_lowest_resolution()\
+		\
+		# downloads video\
+		stream.download()\
+\
+		# returning HTML page\
+		return render(request, 'youtube.html')\
+	return render(request, 'youtube.html')\
+\
+URL:\
+from django.contrib import admin\
+from django.urls import path\
+from . import views\
+\
+urlpatterns = [\
+	path('admin/', admin.site.urls),\
+	path('youtube', views.youtube, name='youtube'),\
+]\
+\
+\
+\
+Numpy Turorial Ultrarapido:\
+\pard\pardeftab720\sa260\partightenfactor0
+
+\f1\fs52 \cf3 \cb4 \outl0\strokewidth0 \strokec3 NumPy UltraQuick Tutorial\cb1 \
+\pard\pardeftab720\sl520\partightenfactor0
+
+\fs28 \cf3 \
+\pard\pardeftab720\sa120\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://colab.research.google.com/corgiredirector?site=https%3A%2F%2Fnumpy.org%2Fdoc%2Fstable%2Findex.html"}}{\fldrslt 
+\fs32 \cf3 \cb4 \ul \ulc3 Numpy}}
+\fs32 \cb4 \'a0is a Python library for creating and manipulating matrices, the main data structure used by ML algorithms.\'a0{\field{\*\fldinst{HYPERLINK "https://colab.research.google.com/corgiredirector?site=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FMatrix_%28mathematics%29"}}{\fldrslt \ul Matrices}}\'a0are mathematical objects used to store values in rows and columns.\
+Python calls matrices\'a0
+\f2\i lists
+\f1\i0 , NumPy calls them\'a0
+\f2\i arrays
+\f1\i0 \'a0and TensorFlow calls them\'a0
+\f2\i tensors
+\f1\i0 . Python represents matrices with the\'a0{\field{\*\fldinst{HYPERLINK "https://colab.research.google.com/corgiredirector?site=https%3A%2F%2Fdocs.python.org%2F3%2Flibrary%2Fstdtypes.html%23lists"}}{\fldrslt \ul list data type}}.\
+This Colab is not an exhaustive tutorial on NumPy. Rather, this Colab teaches you just enough to use NumPy in the Colab exercises of Machine Learning Crash Course.\
+\pard\pardeftab720\sa230\partightenfactor0
+
+\fs46 \cf3 Import NumPy module\cb1 \
+\pard\pardeftab720\sl520\partightenfactor0
+
+\fs28 \cf3 \
+\pard\pardeftab720\sa120\partightenfactor0
+
+\fs32 \cf3 \cb4 Run the following code cell to import the NumPy module:\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f0\fs28 \cf5 \cb6 \strokec5 import\cf7 \strokec7  numpy \cf5 \strokec5 as\cf7 \strokec7  np \cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \outl0\strokewidth0 \
+\pard\pardeftab720\sa230\partightenfactor0
+
+\f1\fs46 \cf3 \cb4 \outl0\strokewidth0 \strokec3 Populate arrays with specific numbers\cb1 \
+\pard\pardeftab720\sl520\partightenfactor0
+
+\fs28 \cf3 \
+\pard\pardeftab720\sa120\partightenfactor0
+
+\fs32 \cf3 \cb4 Call\'a0
+\f0\fs28\fsmilli14400 np.array
+\f1\fs32 \'a0to create a NumPy array with your own hand-picked values. For example, the following call to\'a0
+\f0\fs28\fsmilli14400 np.array
+\f1\fs32 \'a0creates an 8-element array:\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f0\fs28 \cf7 \cb6 \strokec7 one_dimensional_array = np.array\cf8 \strokec8 ([\cf9 \strokec9 1.2\cf8 \strokec8 ,\cf7 \strokec7  \cf9 \strokec9 2.4\cf8 \strokec8 ,\cf7 \strokec7  \cf9 \strokec9 3.5\cf8 \strokec8 ,\cf7 \strokec7  \cf9 \strokec9 4.7\cf8 \strokec8 ,\cf7 \strokec7  \cf9 \strokec9 6.1\cf8 \strokec8 ,\cf7 \strokec7  \cf9 \strokec9 7.2\cf8 \strokec8 ,\cf7 \strokec7  \cf9 \strokec9 8.3\cf8 \strokec8 ,\cf7 \strokec7  \cf9 \strokec9 9.5\cf8 \strokec8 ])\cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf10 \cb6 \strokec10 print\cf8 \strokec8 (\cf7 \strokec7 one_dimensional_array\cf8 \strokec8 )\cf7 \cb1 \strokec7 \
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \outl0\strokewidth0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf3 \cb4 \outl0\strokewidth0 \strokec3 You can also use\'a0
+\f0\fs28\fsmilli14400 \cb1 np.array
+\f1\fs32 \cb4 \'a0to create a two-dimensional array. To create a two-dimensional array specify an extra layer of square brackets. For example, the following call creates a 3x2 array:
+\f0 \cf2 \cb1 \outl0\strokewidth0 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl380\partightenfactor0
+
+\fs28 \cf7 \cb6 \outl0\strokewidth0 \strokec7 two_dimensional_array = np.array\cf8 \strokec8 ([[\cf9 \strokec9 6\cf8 \strokec8 ,\cf7 \strokec7  \cf9 \strokec9 5\cf8 \strokec8 ],\cf7 \strokec7  \cf8 \strokec8 [\cf9 \strokec9 11\cf8 \strokec8 ,\cf7 \strokec7  \cf9 \strokec9 7\cf8 \strokec8 ],\cf7 \strokec7  \cf8 \strokec8 [\cf9 \strokec9 4\cf8 \strokec8 ,\cf7 \strokec7  \cf9 \strokec9 8\cf8 \strokec8 ]])\cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf10 \cb6 \strokec10 print\cf8 \strokec8 (\cf7 \strokec7 two_dimensional_array\cf8 \strokec8 )\cf7 \cb1 \strokec7 \
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf2 \outl0\strokewidth0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf3 \cb4 \outl0\strokewidth0 \strokec3 To populate an array with all zeroes, call\'a0
+\f0\fs28\fsmilli14400 \cb1 np.zeros
+\f1\fs32 \cb4 . To populate an array with all ones, call\'a0
+\f0\fs28\fsmilli14400 \cb1 np.ones
+\f1\fs32 \cb4 .\
+
+\f0 \cf2 \cb1 \outl0\strokewidth0 \
+\pard\pardeftab720\sa230\partightenfactor0
+
+\f1\fs46 \cf3 \cb4 \outl0\strokewidth0 \strokec3 Populate arrays with sequences of numbers
+\fs28 \cb1 \
+\pard\pardeftab720\sa120\partightenfactor0
+
+\fs32 \cf3 \cb4 You can populate an array with a sequence of numbers:\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f0\fs28 \cf7 \cb6 \strokec7 sequence_of_integers = np.arange\cf8 \strokec8 (\cf9 \strokec9 5\cf8 \strokec8 ,\cf7 \strokec7  \cf9 \strokec9 12\cf8 \strokec8 )\cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf10 \cb6 \strokec10 print\cf8 \strokec8 (\cf7 \strokec7 sequence_of_integers\cf8 \strokec8 )\cf7 \cb1 \strokec7 \
+\
+\pard\pardeftab720\sl500\sa120\partightenfactor0
+
+\f1\fs32 \cf3 \strokec3 Notice that\'a0
+\f0\fs28\fsmilli14400 np.arange
+\f1\fs32 \'a0generates a sequence that includes the lower bound (5) but not the upper bound (12).\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf3 \
+\pard\pardeftab720\partightenfactor0
+
+\f3 \cf3 \cb4 Code
+\f1 \cb1 \
+\
+\
+
+\f3 \cb4 Text
+\f1 \cb1 \
+\
+\pard\pardeftab720\sa230\partightenfactor0
+
+\fs46 \cf3 \cb4 Populate arrays with random numbers\cb1 \
+\pard\pardeftab720\sl520\partightenfactor0
+
+\fs28 \cf3 \
+\pard\pardeftab720\sa120\partightenfactor0
+
+\fs32 \cf3 \cb4 NumPy provides various functions to populate arrays with random numbers across certain ranges. For example,\'a0
+\f0\fs28\fsmilli14400 np.random.randint
+\f1\fs32 \'a0generates random integers between a low and high value. The following call populates a 6-element array with random integers between 50 and 100.\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f0\fs28 \cf7 \cb6 \strokec7 random_integers_between_50_and_100 = np.random.randint\cf8 \strokec8 (\cf7 \strokec7 low=\cf9 \strokec9 50\cf8 \strokec8 ,\cf7 \strokec7  high=\cf9 \strokec9 101\cf8 \strokec8 ,\cf7 \strokec7  size=\cf8 \strokec8 (\cf9 \strokec9 6\cf8 \strokec8 ))\cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf10 \cb6 \strokec10 print\cf8 \strokec8 (\cf7 \strokec7 random_integers_between_50_and_100\cf8 \strokec8 )\cf7 \cb1 \strokec7 \
+\
+\pard\pardeftab720\sl500\sa120\partightenfactor0
+
+\f1\fs32 \cf3 \strokec3 Note that the highest generated integer\'a0
+\f0\fs28\fsmilli14400 np.random.randint
+\f1\fs32 \'a0is one less than the\'a0
+\f0\fs28\fsmilli14400 high
+\f1\fs32 \'a0argument.
+\fs28 \
+
+\fs32 To create random floating-point values between 0.0 and 1.0, call\'a0
+\f0\fs28\fsmilli14400 np.random.random
+\f1\fs32 . For example:\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f0\fs28 \cf7 \cb6 \strokec7 random_floats_between_0_and_1 = np.random.random\cf8 \strokec8 ([\cf9 \strokec9 6\cf8 \strokec8 ])\cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf10 \cb6 \strokec10 print\cf8 \strokec8 (\cf7 \strokec7 random_floats_between_0_and_1\cf8 \strokec8 )\cf7 \strokec7  \cb1 \
+\pard\pardeftab720\sa230\partightenfactor0
+
+\f1\fs46 \cf3 \cb4 \strokec3 Mathematical Operations on NumPy Operands\cb1 \
+\pard\pardeftab720\sl520\partightenfactor0
+
+\fs28 \cf3 \
+\pard\pardeftab720\sa120\partightenfactor0
+
+\fs32 \cf3 \cb4 If you want to add or subtract two arrays, linear algebra requires that the two operands have the same dimensions. Furthermore, if you want to multiply two arrays, linear algebra imposes strict rules on the dimensional compatibility of operands. Fortunately, NumPy uses a trick called\'a0{\field{\*\fldinst{HYPERLINK "https://developers.google.com/machine-learning/glossary/#broadcasting"}}{\fldrslt 
+\f4\b \ul broadcasting}}\'a0to virtually expand the smaller operand to dimensions compatible for linear algebra. For example, the following operation uses broadcasting to add 2.0 to the value of every item in the array created in the previous code cell:\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f0\fs28 \cf7 \cb6 \strokec7 random_floats_between_2_and_3 = random_floats_between_0_and_1 + \cf9 \strokec9 2.0\cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf10 \cb6 \strokec10 print\cf8 \strokec8 (\cf7 \strokec7 random_floats_between_2_and_3\cf8 \strokec8 )\cf7 \cb1 \strokec7 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs32 \cf3 \cb4 \strokec3 The following operation also relies on broadcasting to multiply each cell in an array by 3:\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f0\fs28 \cf7 \cb6 \strokec7 random_integers_between_150_and_300 = random_integers_between_50_and_100 * \cf9 \strokec9 3\cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf10 \cb6 \strokec10 print\cf8 \strokec8 (\cf7 \strokec7 random_integers_between_150_and_300\cf8 \strokec8 )\cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sa230\partightenfactor0
+
+\f1\fs46 \cf3 \cb4 \strokec3 Task 1: Create a Linear Dataset\cb1 \
+\pard\pardeftab720\sl520\partightenfactor0
+
+\fs28 \cf3 \
+\pard\pardeftab720\sa120\partightenfactor0
+
+\fs32 \cf3 \cb4 Your goal is to create a simple dataset consisting of a single feature and a label as follows:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0\cf3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	1.	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Assign a sequence of integers from 6 to 20 (inclusive) to a NumPy array named\'a0
+\f0\fs28\fsmilli14400 feature
+\f1\fs32 .\cb1 \
+\ls1\ilvl0\cb4 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	2.	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Assign 15 values to a NumPy array named\'a0
+\f0\fs28\fsmilli14400 label
+\f1\fs32 \'a0such that:\cb1 \
+\pard\tx560\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs25\fsmilli12600 \cf7 \strokec7 \'a0\'a0\'a0label\'a0=\'a0(3)(feature)\'a0+\'a04
+\f3\fs28 \cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs32 \cf3 \cb4 For example, the first value for\'a0
+\f0\fs28\fsmilli14400 \cb1 label
+\f1\fs32 \cb4 \'a0should be:\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs25\fsmilli12600 \cf7 \cb1 \strokec7 \'a0label\'a0=\'a0(3)(6)\'a0+\'a04\'a0=\'a022
+\f3\fs28 \cf3 \strokec3 \
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f0 \cf7 \cb6 \strokec7 feature = ? \cf11 \strokec11 # write your code here\cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf10 \cb6 \strokec10 print\cf8 \strokec8 (\cf7 \strokec7 feature\cf8 \strokec8 )\cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf7 \cb6 label = ?   \cf11 \strokec11 # write your code here\cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf10 \cb6 \strokec10 print\cf8 \strokec8 (\cf7 \strokec7 label\cf8 \strokec8 )\cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf11 \cb6 \strokec11 #@title Double-click to see a possible solution to Task 1.\cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf7 \cb6 feature = np.arange\cf8 \strokec8 (\cf9 \strokec9 6\cf8 \strokec8 ,\cf7 \strokec7  \cf9 \strokec9 21\cf8 \strokec8 )\cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf10 \cb6 \strokec10 print\cf8 \strokec8 (\cf7 \strokec7 feature\cf8 \strokec8 )\cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf7 \cb6 label = \cf8 \strokec8 (\cf7 \strokec7 feature * \cf9 \strokec9 3\cf8 \strokec8 )\cf7 \strokec7  + \cf9 \strokec9 4\cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf10 \cb6 \strokec10 print\cf8 \strokec8 (\cf7 \strokec7 label\cf8 \strokec8 )\cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sa230\partightenfactor0
+
+\f1\fs46 \cf3 \cb4 \strokec3 Task 2: Add Some Noise to the Dataset\cb1 \
+\pard\pardeftab720\sl520\partightenfactor0
+
+\fs28 \cf3 \
+\pard\pardeftab720\sa120\partightenfactor0
+
+\fs32 \cf3 \cb4 To make your dataset a little more realistic, insert a little random noise into each element of the\'a0
+\f0\fs28\fsmilli14400 label
+\f1\fs32 \'a0array you already created. To be more precise, modify each value assigned to\'a0
+\f0\fs28\fsmilli14400 label
+\f1\fs32 \'a0by adding a\'a0
+\f2\i different
+\f1\i0 \'a0random floating-point value between -2 and +2.\
+Don't rely on broadcasting. Instead, create a\'a0
+\f0\fs28\fsmilli14400 noise
+\f1\fs32 \'a0array having the same dimension as\'a0
+\f0\fs28\fsmilli14400 label
+\f1\fs32 .\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f0\fs28 \cf7 \cb6 \strokec7 noise = ?    \cf11 \strokec11 # write your code here\cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf10 \cb6 \strokec10 print\cf8 \strokec8 (\cf7 \strokec7 noise\cf8 \strokec8 )\cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf7 \cb6 label = ?    \cf11 \strokec11 # write your code here\cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf10 \cb6 \strokec10 print\cf8 \strokec8 (\cf7 \strokec7 label\cf8 \strokec8 )\cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf11 \cb6 \strokec11 #@title Double-click to see a possible solution to Task 2.\cf7 \cb1 \strokec7 \
+\
+\pard\pardeftab720\sl380\partightenfactor0
+\cf7 \cb6 noise = \cf8 \strokec8 (\cf7 \strokec7 np.random.random\cf8 \strokec8 ([\cf9 \strokec9 15\cf8 \strokec8 ])\cf7 \strokec7  * \cf9 \strokec9 4\cf8 \strokec8 )\cf7 \strokec7  - \cf9 \strokec9 2\cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf10 \cb6 \strokec10 print\cf8 \strokec8 (\cf7 \strokec7 noise\cf8 \strokec8 )\cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf7 \cb6 label = label + noise \cb1 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf10 \cb6 \strokec10 print\cf8 \strokec8 (\cf7 \strokec7 label\cf8 \strokec8 )\cf7 \cb1 \strokec7 \
+}

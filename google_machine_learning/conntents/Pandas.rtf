@@ -1,0 +1,292 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 Helvetica-Bold;\f2\fmodern\fcharset0 Courier;
+\f3\fnil\fcharset0 LucidaGrande;}
+{\colortbl;\red255\green255\blue255;\red203\green203\blue203;\red42\green42\blue42;\red183\green111\blue179;
+\red23\green23\blue23;\red202\green202\blue202;\red89\green156\blue62;\red212\green212\blue212;\red167\green197\blue152;
+\red194\green126\blue101;\red212\green214\blue154;}
+{\*\expandedcolortbl;;\cssrgb\c83529\c83529\c83529;\cssrgb\c21961\c21961\c21961;\cssrgb\c77255\c52549\c75294;
+\cssrgb\c11765\c11765\c11765;\cssrgb\c83137\c83137\c83137;\cssrgb\c41569\c66275\c30980;\cssrgb\c86275\c86275\c86275;\cssrgb\c70980\c80784\c65882;
+\cssrgb\c80784\c56863\c47059;\cssrgb\c86275\c86275\c66667;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid301\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{circle\}}{\leveltext\leveltemplateid302\'01\uc0\u9702 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid4}
+{\list\listtemplateid5\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid401\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid5}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}}
+\deftab720
+\pard\pardeftab720\sl820\sa260\partightenfactor0
+
+\f0\fs52 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Pandas DataFrame UltraQuick Tutorial\
+\pard\pardeftab720\sl520\partightenfactor0
+
+\fs28 \cf2 \
+\pard\pardeftab720\sl500\sa120\partightenfactor0
+
+\fs32 \cf2 This Colab introduces\'a0{\field{\*\fldinst{HYPERLINK "https://colab.research.google.com/corgiredirector?site=https%3A%2F%2Fpandas.pydata.org%2Fpandas-docs%2Fstable%2Freference%2Fapi%2Fpandas.DataFrame.html"}}{\fldrslt 
+\f1\b \ul DataFrames}}, which are the central data structure in the pandas API. This Colab is not a comprehensive DataFrames tutorial. Rather, this Colab provides a very quick introduction to the parts of DataFrames required to do the other Colab exercises in Machine Learning Crash Course.\
+A DataFrame is similar to an in-memory spreadsheet. Like a spreadsheet:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl500\partightenfactor0
+\ls1\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 A DataFrame stores data in cells.\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 A DataFrame has named columns (usually) and numbered rows.\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf2 \
+\pard\pardeftab720\sa230\partightenfactor0
+
+\fs46 \cf2 \cb3 Import NumPy and pandas modules\cb1 \
+\pard\pardeftab720\sl520\partightenfactor0
+
+\fs28 \cf2 \
+\pard\pardeftab720\sa120\partightenfactor0
+
+\fs32 \cf2 \cb3 Run the following code cell to import the NumPy and pandas modules.\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f2\fs28 \cf4 \cb5 \strokec4 import\cf6 \strokec6  numpy \cf4 \strokec4 as\cf6 \strokec6  np\cb1 \
+\cf4 \cb5 \strokec4 import\cf6 \strokec6  pandas \cf4 \strokec4 as\cf6 \strokec6  pd\cb1 \
+\pard\pardeftab720\sa230\partightenfactor0
+
+\f0\fs46 \cf2 \cb3 \strokec2 Creating a DataFrame\cb1 \
+\pard\pardeftab720\sl520\partightenfactor0
+
+\fs28 \cf2 \
+\
+\
+\pard\pardeftab720\sa120\partightenfactor0
+
+\fs32 \cf2 \cb3 The following code cell creates a simple DataFrame containing 10 cells organized as follows:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls2\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 5 rows\cb1 \
+\ls2\ilvl0\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 2 columns, one named\'a0
+\f2\fs28\fsmilli14400 temperature
+\f0\fs32 \'a0and the other named\'a0
+\f2\fs28\fsmilli14400 activity
+\f0\fs32 \cb1 \
+\pard\pardeftab720\sa120\partightenfactor0
+\cf2 \cb3 The following code cell instantiates a\'a0
+\f2\fs28\fsmilli14400 pd.DataFrame
+\f0\fs32 \'a0class to generate a DataFrame. The class takes two arguments:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls3\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The first argument provides the data to populate the 10 cells. The code cell calls\'a0
+\f2\fs28\fsmilli14400 np.array
+\f0\fs32 \'a0to generate the 5x2 NumPy array.\cb1 \
+\ls3\ilvl0\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The second argument identifies the names of the two columns.\cb1 \
+\pard\pardeftab720\sa120\partightenfactor0
+
+\f1\b \cf2 \cb3 Note
+\f0\b0 : Do not redefine variables in the following code cell. Subsequent code cells use these variables.\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f2\fs28 \cf7 \cb5 \strokec7 # Create and populate a 5x2 NumPy array.\cf6 \cb1 \strokec6 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf6 \cb5 my_data = np.array\cf8 \strokec8 ([[\cf9 \strokec9 0\cf8 \strokec8 ,\cf6 \strokec6  \cf9 \strokec9 3\cf8 \strokec8 ],\cf6 \strokec6  \cf8 \strokec8 [\cf9 \strokec9 10\cf8 \strokec8 ,\cf6 \strokec6  \cf9 \strokec9 7\cf8 \strokec8 ],\cf6 \strokec6  \cf8 \strokec8 [\cf9 \strokec9 20\cf8 \strokec8 ,\cf6 \strokec6  \cf9 \strokec9 9\cf8 \strokec8 ],\cf6 \strokec6  \cf8 \strokec8 [\cf9 \strokec9 30\cf8 \strokec8 ,\cf6 \strokec6  \cf9 \strokec9 14\cf8 \strokec8 ],\cf6 \strokec6  \cf8 \strokec8 [\cf9 \strokec9 40\cf8 \strokec8 ,\cf6 \strokec6  \cf9 \strokec9 15\cf8 \strokec8 ]])\cf6 \cb1 \strokec6 \
+\
+\pard\pardeftab720\sl380\partightenfactor0
+\cf7 \cb5 \strokec7 # Create a Python list that holds the names of the two columns.\cf6 \cb1 \strokec6 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf6 \cb5 my_column_names = \cf8 \strokec8 [\cf10 \strokec10 'temperature'\cf8 \strokec8 ,\cf6 \strokec6  \cf10 \strokec10 'activity'\cf8 \strokec8 ]\cf6 \cb1 \strokec6 \
+\
+\pard\pardeftab720\sl380\partightenfactor0
+\cf7 \cb5 \strokec7 # Create a DataFrame.\cf6 \cb1 \strokec6 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf6 \cb5 my_dataframe = pd.DataFrame\cf8 \strokec8 (\cf6 \strokec6 data=my_data\cf8 \strokec8 ,\cf6 \strokec6  columns=my_column_names\cf8 \strokec8 )\cf6 \cb1 \strokec6 \
+\
+\pard\pardeftab720\sl380\partightenfactor0
+\cf7 \cb5 \strokec7 # Print the entire DataFrame\cf6 \cb1 \strokec6 \
+\cf11 \cb5 \strokec11 print\cf8 \strokec8 (\cf6 \strokec6 my_dataframe\cf8 \strokec8 )\cf6 \cb1 \strokec6 \
+\pard\pardeftab720\sa230\partightenfactor0
+
+\f0\fs46 \cf2 \cb3 \strokec2 Adding a new column to a DataFrame\cb1 \
+\pard\pardeftab720\sl520\partightenfactor0
+
+\fs28 \cf2 \
+\pard\pardeftab720\sa120\partightenfactor0
+
+\fs32 \cf2 \cb3 You may add a new column to an existing pandas DataFrame just by assigning values to a new column name. For example, the following code creates a third column named\'a0
+\f2\fs28\fsmilli14400 adjusted
+\f0\fs32 \'a0in\'a0
+\f2\fs28\fsmilli14400 my_dataframe
+\f0\fs32 :\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f2\fs28 \cf7 \cb5 \strokec7 # Create a new column named adjusted.\cf6 \cb1 \strokec6 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf6 \cb5 my_dataframe\cf8 \strokec8 [\cf10 \strokec10 "adjusted"\cf8 \strokec8 ]\cf6 \strokec6  = my_dataframe\cf8 \strokec8 [\cf10 \strokec10 "activity"\cf8 \strokec8 ]\cf6 \strokec6  + \cf9 \strokec9 2\cf6 \cb1 \strokec6 \
+\
+\pard\pardeftab720\sl380\partightenfactor0
+\cf7 \cb5 \strokec7 # Print the entire DataFrame\cf6 \cb1 \strokec6 \
+\cf11 \cb5 \strokec11 print\cf8 \strokec8 (\cf6 \strokec6 my_dataframe\cf8 \strokec8 )\cf6 \cb1 \strokec6 \
+\pard\pardeftab720\sa230\partightenfactor0
+
+\f0\fs46 \cf2 \cb3 \strokec2 Specifying a subset of a DataFrame\cb1 \
+\pard\pardeftab720\sl520\partightenfactor0
+
+\fs28 \cf2 \
+\pard\pardeftab720\sa120\partightenfactor0
+
+\fs32 \cf2 \cb3 Pandas provide multiples ways to isolate specific rows, columns, slices or cells in a DataFrame.\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f2\fs28 \cf11 \cb5 \strokec11 print\cf8 \strokec8 (\cf10 \strokec10 "Rows #0, #1, and #2:"\cf8 \strokec8 )\cf6 \cb1 \strokec6 \
+\cf11 \cb5 \strokec11 print\cf8 \strokec8 (\cf6 \strokec6 my_dataframe.head\cf8 \strokec8 (\cf9 \strokec9 3\cf8 \strokec8 ),\cf6 \strokec6  \cf10 \strokec10 '\\n'\cf8 \strokec8 )\cf6 \cb1 \strokec6 \
+\
+\cf11 \cb5 \strokec11 print\cf8 \strokec8 (\cf10 \strokec10 "Row #2:"\cf8 \strokec8 )\cf6 \cb1 \strokec6 \
+\cf11 \cb5 \strokec11 print\cf8 \strokec8 (\cf6 \strokec6 my_dataframe.iloc\cf8 \strokec8 [[\cf9 \strokec9 2\cf8 \strokec8 ]],\cf6 \strokec6  \cf10 \strokec10 '\\n'\cf8 \strokec8 )\cf6 \cb1 \strokec6 \
+\
+\cf11 \cb5 \strokec11 print\cf8 \strokec8 (\cf10 \strokec10 "Rows #1, #2, and #3:"\cf8 \strokec8 )\cf6 \cb1 \strokec6 \
+\cf11 \cb5 \strokec11 print\cf8 \strokec8 (\cf6 \strokec6 my_dataframe\cf8 \strokec8 [\cf9 \strokec9 1\cf8 \strokec8 :\cf9 \strokec9 4\cf8 \strokec8 ],\cf6 \strokec6  \cf10 \strokec10 '\\n'\cf8 \strokec8 )\cf6 \cb1 \strokec6 \
+\
+\cf11 \cb5 \strokec11 print\cf8 \strokec8 (\cf10 \strokec10 "Column 'temperature':"\cf8 \strokec8 )\cf6 \cb1 \strokec6 \
+\cf11 \cb5 \strokec11 print\cf8 \strokec8 (\cf6 \strokec6 my_dataframe\cf8 \strokec8 [\cf10 \strokec10 'temperature'\cf8 \strokec8 ])\cf6 \cb1 \strokec6 \
+\pard\pardeftab720\sa230\partightenfactor0
+
+\f0\fs46 \cf2 \cb3 \strokec2 Task 1: Create a DataFrame\cb1 \
+\pard\pardeftab720\sl520\partightenfactor0
+
+\fs28 \cf2 \
+\pard\pardeftab720\sa120\partightenfactor0
+
+\fs32 \cf2 \cb3 Do the following:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa120\partightenfactor0
+\ls4\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	1.	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Create an 3x4 (3 rows x 4 columns) pandas DataFrame in which the columns are named\'a0
+\f2\fs28\fsmilli14400 Eleanor
+\f0\fs32 ,\'a0
+\f2\fs28\fsmilli14400 Chidi
+\f0\fs32 ,\'a0
+\f2\fs28\fsmilli14400 Tahani
+\f0\fs32 , and\'a0
+\f2\fs28\fsmilli14400 Jason
+\f0\fs32 . Populate each of the 12 cells in the DataFrame with a random integer between 0 and 100, inclusive.\cb1 \uc0\u8232 \
+\ls4\ilvl0\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	2.	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Output the following:\cb1 \
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\partightenfactor0
+\ls4\ilvl1\cf2 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f3 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 the entire DataFrame\cb1 \
+\ls4\ilvl1\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f3 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 the value in the cell of row #1 of the\'a0
+\f2\fs28\fsmilli14400 Eleanor
+\f0\fs32 \'a0column\cb1 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa120\partightenfactor0
+\ls4\ilvl0\cf2 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	3.	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Create a fifth column named\'a0
+\f2\fs28\fsmilli14400 Janet
+\f0\fs32 , which is populated with the row-by-row sums of\'a0
+\f2\fs28\fsmilli14400 Tahani
+\f0\fs32 \'a0and\'a0
+\f2\fs28\fsmilli14400 Jason
+\f0\fs32 .\cb1 \uc0\u8232 \
+\pard\pardeftab720\sa120\partightenfactor0
+\cf2 \cb3 To complete this task, it helps to know the NumPy basics covered in the NumPy UltraQuick Tutorial.\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f2\fs28 \cf7 \cb5 \strokec7 #@title Double-click for a solution to Task 1.\cf6 \cb1 \strokec6 \
+\
+\cf7 \cb5 \strokec7 # Create a Python list that holds the names of the four columns.\cf6 \cb1 \strokec6 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf6 \cb5 my_column_names = \cf8 \strokec8 [\cf10 \strokec10 'Eleanor'\cf8 \strokec8 ,\cf6 \strokec6  \cf10 \strokec10 'Chidi'\cf8 \strokec8 ,\cf6 \strokec6  \cf10 \strokec10 'Tahani'\cf8 \strokec8 ,\cf6 \strokec6  \cf10 \strokec10 'Jason'\cf8 \strokec8 ]\cf6 \cb1 \strokec6 \
+\
+\pard\pardeftab720\sl380\partightenfactor0
+\cf7 \cb5 \strokec7 # Create a 3x4 numpy array, each cell populated with a random integer.\cf6 \cb1 \strokec6 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf6 \cb5 my_data = np.random.randint\cf8 \strokec8 (\cf6 \strokec6 low=\cf9 \strokec9 0\cf8 \strokec8 ,\cf6 \strokec6  high=\cf9 \strokec9 101\cf8 \strokec8 ,\cf6 \strokec6  size=\cf8 \strokec8 (\cf9 \strokec9 3\cf8 \strokec8 ,\cf6 \strokec6  \cf9 \strokec9 4\cf8 \strokec8 ))\cf6 \cb1 \strokec6 \
+\
+\pard\pardeftab720\sl380\partightenfactor0
+\cf7 \cb5 \strokec7 # Create a DataFrame.\cf6 \cb1 \strokec6 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf6 \cb5 df = pd.DataFrame\cf8 \strokec8 (\cf6 \strokec6 data=my_data\cf8 \strokec8 ,\cf6 \strokec6  columns=my_column_names\cf8 \strokec8 )\cf6 \cb1 \strokec6 \
+\
+\pard\pardeftab720\sl380\partightenfactor0
+\cf7 \cb5 \strokec7 # Print the entire DataFrame\cf6 \cb1 \strokec6 \
+\cf11 \cb5 \strokec11 print\cf8 \strokec8 (\cf6 \strokec6 df\cf8 \strokec8 )\cf6 \cb1 \strokec6 \
+\
+\cf7 \cb5 \strokec7 # Print the value in row #1 of the Eleanor column.\cf6 \cb1 \strokec6 \
+\cf11 \cb5 \strokec11 print\cf8 \strokec8 (\cf10 \strokec10 "\\nSecond row of the Eleanor column: %d\\n"\cf6 \strokec6  % df\cf8 \strokec8 [\cf10 \strokec10 'Eleanor'\cf8 \strokec8 ][\cf9 \strokec9 1\cf8 \strokec8 ])\cf6 \cb1 \strokec6 \
+\
+\cf7 \cb5 \strokec7 # Create a column named Janet whose contents are the sum\cf6 \cb1 \strokec6 \
+\cf7 \cb5 \strokec7 # of two other columns.\cf6 \cb1 \strokec6 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf6 \cb5 df\cf8 \strokec8 [\cf10 \strokec10 'Janet'\cf8 \strokec8 ]\cf6 \strokec6  = df\cf8 \strokec8 [\cf10 \strokec10 'Tahani'\cf8 \strokec8 ]\cf6 \strokec6  + df\cf8 \strokec8 [\cf10 \strokec10 'Jason'\cf8 \strokec8 ]\cf6 \cb1 \strokec6 \
+\
+\pard\pardeftab720\sl380\partightenfactor0
+\cf7 \cb5 \strokec7 # Print the enhanced DataFrame\cf6 \cb1 \strokec6 \
+\cf11 \cb5 \strokec11 print\cf8 \strokec8 (\cf6 \strokec6 df\cf8 \strokec8 )\cf6 \cb1 \strokec6 \
+\pard\pardeftab720\sa230\partightenfactor0
+
+\f0\fs46 \cf2 \cb3 \strokec2 Copying a DataFrame (optional)\cb1 \
+\pard\pardeftab720\sl520\partightenfactor0
+
+\fs28 \cf2 \
+\pard\pardeftab720\sa120\partightenfactor0
+
+\fs32 \cf2 \cb3 Pandas provides two different ways to duplicate a DataFrame:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls5\ilvl0
+\f1\b \cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Referencing.
+\f0\b0 \'a0If you assign a DataFrame to a new variable, any change to the DataFrame or to the new variable will be reflected in the other.\cb1 \
+\ls5\ilvl0
+\f1\b \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Copying.
+\f0\b0 \'a0If you call the\'a0
+\f2\fs28\fsmilli14400 pd.DataFrame.copy
+\f0\fs32 \'a0method, you create a true independent copy. Changes to the original DataFrame or to the copy will not be reflected in the other.\cb1 \
+\pard\pardeftab720\sa120\partightenfactor0
+\cf2 \cb3 The difference is subtle, but important.\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f2\fs28 \cf7 \cb5 \strokec7 # Create a reference by assigning my_dataframe to a new variable.\cf6 \cb1 \strokec6 \
+\cf11 \cb5 \strokec11 print\cf8 \strokec8 (\cf10 \strokec10 "Experiment with a reference:"\cf8 \strokec8 )\cf6 \cb1 \strokec6 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf6 \cb5 reference_to_df = df\cb1 \
+\
+\pard\pardeftab720\sl380\partightenfactor0
+\cf7 \cb5 \strokec7 # Print the starting value of a particular cell.\cf6 \cb1 \strokec6 \
+\cf11 \cb5 \strokec11 print\cf8 \strokec8 (\cf10 \strokec10 "  Starting value of df: %d"\cf6 \strokec6  % df\cf8 \strokec8 [\cf10 \strokec10 'Jason'\cf8 \strokec8 ][\cf9 \strokec9 1\cf8 \strokec8 ])\cf6 \cb1 \strokec6 \
+\cf11 \cb5 \strokec11 print\cf8 \strokec8 (\cf10 \strokec10 "  Starting value of reference_to_df: %d\\n"\cf6 \strokec6  % reference_to_df\cf8 \strokec8 [\cf10 \strokec10 'Jason'\cf8 \strokec8 ][\cf9 \strokec9 1\cf8 \strokec8 ])\cf6 \cb1 \strokec6 \
+\
+\cf7 \cb5 \strokec7 # Modify a cell in df.\cf6 \cb1 \strokec6 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf6 \cb5 df.at\cf8 \strokec8 [\cf9 \strokec9 1\cf8 \strokec8 ,\cf6 \strokec6  \cf10 \strokec10 'Jason'\cf8 \strokec8 ]\cf6 \strokec6  = df\cf8 \strokec8 [\cf10 \strokec10 'Jason'\cf8 \strokec8 ][\cf9 \strokec9 1\cf8 \strokec8 ]\cf6 \strokec6  + \cf9 \strokec9 5\cf6 \cb1 \strokec6 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf11 \cb5 \strokec11 print\cf8 \strokec8 (\cf10 \strokec10 "  Updated df: %d"\cf6 \strokec6  % df\cf8 \strokec8 [\cf10 \strokec10 'Jason'\cf8 \strokec8 ][\cf9 \strokec9 1\cf8 \strokec8 ])\cf6 \cb1 \strokec6 \
+\cf11 \cb5 \strokec11 print\cf8 \strokec8 (\cf10 \strokec10 "  Updated reference_to_df: %d\\n\\n"\cf6 \strokec6  % reference_to_df\cf8 \strokec8 [\cf10 \strokec10 'Jason'\cf8 \strokec8 ][\cf9 \strokec9 1\cf8 \strokec8 ])\cf6 \cb1 \strokec6 \
+\cf7 \cb5 \strokec7 # Modify a cell in df.\cf6 \cb1 \strokec6 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf6 \cb5 df.at\cf8 \strokec8 [\cf9 \strokec9 1\cf8 \strokec8 ,\cf6 \strokec6  \cf10 \strokec10 'Jason'\cf8 \strokec8 ]\cf6 \strokec6  = df\cf8 \strokec8 [\cf10 \strokec10 'Jason'\cf8 \strokec8 ][\cf9 \strokec9 1\cf8 \strokec8 ]\cf6 \strokec6  + \cf9 \strokec9 5\cf6 \cb1 \strokec6 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf11 \cb5 \strokec11 print\cf8 \strokec8 (\cf10 \strokec10 "  Updated df: %d"\cf6 \strokec6  % df\cf8 \strokec8 [\cf10 \strokec10 'Jason'\cf8 \strokec8 ][\cf9 \strokec9 1\cf8 \strokec8 ])\cf6 \cb1 \strokec6 \
+\cf11 \cb5 \strokec11 print\cf8 \strokec8 (\cf10 \strokec10 "  Updated reference_to_df: %d\\n\\n"\cf6 \strokec6  % reference_to_df\cf8 \strokec8 [\cf10 \strokec10 'Jason'\cf8 \strokec8 ][\cf9 \strokec9 1\cf8 \strokec8 ])\cf6 \cb1 \strokec6 \
+\
+\cf7 \cb5 \strokec7 # Create a true copy of my_dataframe\cf6 \cb1 \strokec6 \
+\cf11 \cb5 \strokec11 print\cf8 \strokec8 (\cf10 \strokec10 "Experiment with a true copy:"\cf8 \strokec8 )\cf6 \cb1 \strokec6 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf6 \cb5 copy_of_my_dataframe = my_dataframe.copy\cf8 \strokec8 ()\cf6 \cb1 \strokec6 \
+\
+\pard\pardeftab720\sl380\partightenfactor0
+\cf7 \cb5 \strokec7 # Print the starting value of a particular cell.\cf6 \cb1 \strokec6 \
+\cf11 \cb5 \strokec11 print\cf8 \strokec8 (\cf10 \strokec10 "  Starting value of my_dataframe: %d"\cf6 \strokec6  % my_dataframe\cf8 \strokec8 [\cf10 \strokec10 'activity'\cf8 \strokec8 ][\cf9 \strokec9 1\cf8 \strokec8 ])\cf6 \cb1 \strokec6 \
+\cf11 \cb5 \strokec11 print\cf8 \strokec8 (\cf10 \strokec10 "  Starting value of copy_of_my_dataframe: %d\\n"\cf6 \strokec6  % copy_of_my_dataframe\cf8 \strokec8 [\cf10 \strokec10 'activity'\cf8 \strokec8 ][\cf9 \strokec9 1\cf8 \strokec8 ])\cf6 \cb1 \strokec6 \
+\
+\cf7 \cb5 \strokec7 # Modify a cell in df.\cf6 \cb1 \strokec6 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf6 \cb5 my_dataframe.at\cf8 \strokec8 [\cf9 \strokec9 1\cf8 \strokec8 ,\cf6 \strokec6  \cf10 \strokec10 'activity'\cf8 \strokec8 ]\cf6 \strokec6  = my_dataframe\cf8 \strokec8 [\cf10 \strokec10 'activity'\cf8 \strokec8 ][\cf9 \strokec9 1\cf8 \strokec8 ]\cf6 \strokec6  + \cf9 \strokec9 3\cf6 \cb1 \strokec6 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf11 \cb5 \strokec11 print\cf8 \strokec8 (\cf10 \strokec10 "  Updated my_dataframe: %d"\cf6 \strokec6  % my_dataframe\cf8 \strokec8 [\cf10 \strokec10 'activity'\cf8 \strokec8 ][\cf9 \strokec9 1\cf8 \strokec8 ])\cf6 \cb1 \strokec6 \
+\cf11 \cb5 \strokec11 print\cf8 \strokec8 (\cf10 \strokec10 "  copy_of_my_dataframe does not get updated: %d"\cf6 \strokec6  % copy_of_my_dataframe\cf8 \strokec8 [\cf10 \strokec10 'activity'\cf8 \strokec8 ][\cf9 \strokec9 1\cf8 \strokec8 ])\cf6 \cb1 \strokec6 \
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf2 \strokec2 \
+\
+}
